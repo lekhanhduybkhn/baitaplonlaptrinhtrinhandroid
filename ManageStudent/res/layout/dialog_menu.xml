@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+     <TextView
+         android:id="@+id/menu_list"
+         android:layout_width="fill_parent"
+         android:layout_height="45dp"
+         android:background="@drawable/item_menu_bgr"
+         android:gravity="left|center_vertical"
+         android:paddingLeft="12dp"
+         android:text="@string/menu_list"
+         android:textSize="18sp" />
+
+    <View
+        android:id="@+id/menu_devide"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/menu_list"
+        android:background="#CCCCCC" />
+    
+    <TextView
+        android:id="@+id/menu_detail"
+        android:layout_below="@id/menu_devide"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/item_menu_bgr"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="12dp"
+        android:text="@string/menu_detail"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/menu_devide1"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/menu_detail"
+        android:background="#CCCCCC" />
+
+    <TextView
+        android:id="@+id/menu_edit"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/menu_devide1"
+        android:background="@drawable/item_menu_bgr"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="12dp"
+        android:text="@string/menu_edit"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/menu_devide2"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/menu_edit"
+        android:background="#CCCCCC" />
+
+    <TextView
+        android:id="@+id/menu_delete"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/menu_devide2"
+        android:background="@drawable/item_menu_bgr"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="12dp"
+        android:text="@string/menu_delete"
+        android:textSize="18sp" />
+
+</RelativeLayout>

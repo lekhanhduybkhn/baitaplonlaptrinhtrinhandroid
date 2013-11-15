@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ManageStudent</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="ic_manage_list">Quản lý danh sách lớp</string>
+    <string name="ic_manage_attendance">Quản lý điểm danh</string>
+    <string name="ic_manage_goal">Quản lý điểm </string>
+    <string name="ic_manage_project">Quản lý bài tập lớn</string>
+    <string name="managestudent">"Quản lý "</string>
+    <string name="ic_manage_week">Quản lý kế hoạch tuần</string>
+    <string name="mon">Thứ hai</string>
+    <string name="tue">Thứ ba</string>
+    <string name="wed">Thứ tư</string>
+    <string name="thu">Thứ năm</string>
+    <string name="fri">Thứ sáu</string>
+    <string name="sat">Thứ 7</string>
+    <string name="sun">Chủ nhật</string>
+    <string name="managestudentplan">Quản lý kế hoạch tuần</string>
+    <string name="tool">Công cụ</string>
+    <string name="setting">Cài đặt</string>
+    <string name="about">Thông tin</string>
+    <string name="txtInfoClass">Chưa có dữ liệu !</string>
+    <string name="malop">Mã lớp</string>
+    <string name="hint_ma_lop">Nhập mã lớp học !</string>
+    <string name="tenlop">Tên lớp học</string>
+    <string name="hint_ten_lop">Nhập tên lớp học !</string>
+    <string name="add_class">Thêm mới lớp học</string>
+    <string name="edit_class">Chỉnh sửa lớp học</string>
+    <string name="list_class">Danh sách lớp học</string>
+    <string name="ma_hoc_phan">Mã học phần</string>
+    <string name="phong_hoc">Phòng học</string>
+    <string name="hint_ma_hoc_phan">Nhập mã học phần !</string>
+    <string name="ten_hoc_phan">Tên học phần</string>
+    <string name="hint_ten_hoc_phan">Tên học phần</string>
+    <string name="hint_phong_hoc">Nhập phòng học</string>
+    <string name="ok">OK</string>
+    <string name="please_malop">Vui lòng nhập mã lớp !</string>
+    <string name="please_tenlop">Vui lòng nhập tên lớp !</string>
+    <string name="please_mahocphan">Vui lòng nhập mã học phần !</string>
+    <string name="please_tenhocphan">Vui lòng nhập tên học phần !</string>
+    <string name="please_phonghoc">Vui lòng nhập phòng học !</string>
+    <string name="contextEdit">Chỉnh sửa</string>
+    <string name="contextDelete">Xóa</string>
+    <string name="add">Thêm mới</string>
+    <string name="edit">Chỉnh sửa</string>
+    <string name="menu_detail">Chi tiết</string>
+    <string name="menu_edit">Chỉnh sửa</string>
+    <string name="menu_delete">Xóa</string>
+    <string name="menu_list">Xem danh sách lớp</string>
+    <string name="detail_class">Chi tiết lớp học</string>
+    <string name="edit_student">Chỉnh sửa thông tin sinh viên</string>
+    <string name="add_student">Thêm mới sinh viên</string>
+    <string name="masv">Mã sinh viên :</string>
+    <string name="entermasv">Nhập mã sinh viên!</string>
+    <string name="hovaten">Họ và tên :</string>
+    <string name="enterhoten">Nhập họ và tên!</string>
+    <string name="sex">Giới tính :</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string name="clas">Lớp :</string>
+    <string name="enterclass">Nhập tên lớp !</string>
+    <string name="addStudent">Thêm mới sinh viên !</string>
+    <string name="editStudent">Chỉnh sửa sinh viên !</string>
+
+</resources>

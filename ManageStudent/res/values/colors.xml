@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <!-- alpha 150 cua 256 decimal tuc la 96 hecxa -->
+    <color name="black_alpha_level1">#96000000</color>
+    <color name="red">#ff0000</color>
+    <color name="red_level1">#fa5259</color>
+    <color name="gray">#969696</color>
+    <color name="gray_white">#f5f5f5</color>
+    <color name="gray_level0">#f5f5f5</color>
+    <color name="gray_level1">#e6e6e6</color>
+    <color name="gray_level2">#dcdcdc</color>
+    <color name="gray_level3">#b4b4b4</color>
+    <color name="gray_level4">#f9f9f9</color>
+    <color name="gray_dark">#5a5a5a</color>
+    <color name="gray_dark_plus">#323232</color>
+    <color name="gray_dark_level1">#666666</color>
+    <color name="gray_dark_level2">#646464</color>
+    <color name="gray_dark_level3">#3a3a3a</color>
+    <color name="orange">#ff9900</color>
+    <color name="orange_level2">#dc6600</color>
+    <color name="green">#2efa97</color>
+    <color name="green_level1">#33cc66</color>
+    <color name="green_level2">#aade6b</color>
+    <color name="blue_level1">#5493cc</color>
+    <color name="white_notification">#f8f8f8</color>
+    <color name="black_notification">#6c6c6c</color>
+    <!-- WCS -->
+    <color name="gray_bgr">#333333</color>
+    <color name="gray_bgr2">#1b1b1b</color>
+    <color name="blue_level2">#5cadff</color>
+    <color name="orange2">#ee8800</color>
+    <color name="bgr">#f2f2f2</color>
+    <color name="bgr_select">#e3e3e3</color>
+    <color name="bgr_devide">#e5e5e5</color>
+    <color name="txtColor">#7c7c7c</color>
+
+</resources>

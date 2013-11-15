@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1"
+    android:layout_marginLeft="2dp" 
+    android:layout_marginRight="2dp">
+
+    <TableRow
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/malop" />
+
+        <EditText
+            android:id="@+id/tv_malop"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/etxt"
+            android:hint="@string/hint_ma_lop"
+            android:paddingLeft="5dp"
+            android:textSize="14sp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp" >
+
+        <TextView
+            android:id="@+id/phonghoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tenlop" />
+
+        <EditText
+            android:id="@+id/tv_tenlop"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/etxt"
+            android:hint="@string/hint_ten_lop"
+            android:paddingLeft="5dp"
+            android:textSize="14sp" >
+        </EditText>
+    </TableRow>
+    
+     <TableRow
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ma_hoc_phan" />
+
+        <EditText
+            android:id="@+id/tv_mahocphan"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/etxt"
+            android:hint="@string/hint_ma_hoc_phan"
+            android:paddingLeft="5dp"
+            android:textSize="14sp" >
+        </EditText>
+    </TableRow>
+    
+      <TableRow
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ten_hoc_phan" />
+
+        <EditText
+            android:id="@+id/tv_tenhocphan"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/etxt"
+            android:hint="@string/hint_ten_hoc_phan"
+            android:paddingLeft="5dp"
+            android:textSize="14sp" >
+        </EditText>
+    </TableRow>
+    
+       <TableRow
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phong_hoc" />
+
+        <EditText
+            android:id="@+id/tv_phonghoc"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/etxt"
+            android:hint="@string/hint_phong_hoc"
+            android:paddingLeft="5dp"
+            android:textSize="14sp" >
+        </EditText>
+    </TableRow>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <Button
+            android:id="@+id/btn_add_update_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_margin="2dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/btn_bgr"
+            android:text="@string/add_class"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+</TableLayout>
