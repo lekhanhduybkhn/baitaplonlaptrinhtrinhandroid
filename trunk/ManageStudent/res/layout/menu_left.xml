@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_left"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/orange"
+    android:fadeScrollbars="false"
+    android:fadingEdge="none"
+    android:overScrollMode="never" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtManager"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:singleLine="true"
+            android:text="@string/managestudent"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/manage_list_student"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/ic_manage_student_attendance"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/manage_project"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/manage_student_goal"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/manage_student_calendar"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtManagerPlan"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:singleLine="true"
+            android:text="@string/ic_manage_week"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/calendar_mon"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/calendar_tue"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/calendar_wed"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/calendar_thu"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/calendar_fri"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/calendar_sat"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/calendar_sun"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtManagerTool"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:singleLine="true"
+            android:text="@string/tool"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/tool_setting"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/menu_divider"
+            android:contentDescription="@string/managestudent" />
+
+        <TextView
+            android:id="@+id/tool_about"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menuleft_bgr"
+            android:drawablePadding="15dp"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</ScrollView>

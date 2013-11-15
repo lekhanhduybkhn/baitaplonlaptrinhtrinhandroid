@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Đây là fragment lớn nhất được sử dụng cho các màn hình sau này. 
+Màn hình nào được gọi đến, ta sử dụng: 
+getFragmentManager().beginTransaction().replace(R.id.content_parent_layout, new <Fragment will use>()).commit();
+-->
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_fragment_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    class="com.android.manage.student.object.ContentParent" />
