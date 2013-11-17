@@ -14,6 +14,7 @@ public class Student implements Serializable {
 	private String mSex;
 	private int idRegisterClass;
 
+	//day la ham khoi tao class student
 	public Student() {
 		this("", "", "", "",0);
 	}
