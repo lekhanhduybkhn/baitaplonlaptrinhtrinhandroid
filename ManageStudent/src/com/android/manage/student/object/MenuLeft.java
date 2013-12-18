@@ -9,7 +9,9 @@ import com.android.manage.student.R;
 import com.android.manage.student.base.ManageStudentFragment;
 import com.android.manage.student.base.SlidingSherlockFragmentActivity;
 import com.android.manage.student.common.FragmentControler;
+import com.android.manage.student.screen.ManageAttendance;
 import com.android.manage.student.screen.ScreenManageClass;
+import com.android.manage.student.screen.ScreenManagerProject;
 import com.android.manage.student.screen.SplashScreen;
 
 public class MenuLeft extends ManageStudentFragment implements OnClickListener {
@@ -180,23 +182,16 @@ public class MenuLeft extends ManageStudentFragment implements OnClickListener {
 		}
 
 		if (v == ic_manage_student_attendance) {
-			if (nameClass.equals(ScreenManageClass.class.toString())) {
-				return;
-			}
-			ScreenManageClass manageClass = new ScreenManageClass();
-			manageClass.setType(1);
+			ManageAttendance manageAttendance = new ManageAttendance();
 			FragmentControler
-					.replaceWithPopAllBackStack(shlFrgAtv, manageClass);
+					.replaceWithPopAllBackStack(shlFrgAtv, manageAttendance);
 		}
 
 		if (v == manage_project) {
-			if (nameClass.equals(ScreenManageClass.class.toString())) {
-				return;
-			}
-			ScreenManageClass manageClass = new ScreenManageClass();
-			manageClass.setType(2);
+			ScreenManagerProject manager_project = new ScreenManagerProject();
+
 			FragmentControler
-					.replaceWithPopAllBackStack(shlFrgAtv, manageClass);
+					.replaceWithPopAllBackStack(shlFrgAtv, manager_project);
 		}
 
 		if (v == manage_student_goal) {

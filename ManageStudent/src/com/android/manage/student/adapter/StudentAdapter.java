@@ -15,7 +15,7 @@ import com.android.manage.student.base.SlidingSherlockFragmentActivity;
 import com.android.manage.student.common.SqlManageStudentOpenHelper;
 import com.android.manage.student.object.Student;
 
-public class StudentAdapter extends BaseAdapter{
+public class StudentAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 	List<Student> data = null;
 	SqlManageStudentOpenHelper slqHelper;
@@ -55,6 +55,7 @@ public class StudentAdapter extends BaseAdapter{
 		public ImageView icon_sex;
 		public TextView name_student = null;
 		public TextView class_student = null;
+		public TextView stt = null;
 	}
 
 	@Override
@@ -67,6 +68,7 @@ public class StudentAdapter extends BaseAdapter{
 			holder.icon_sex = (ImageView) row.findViewById(R.id.iconSex);
 			holder.name_student = (TextView) row.findViewById(R.id.nameRow);
 			holder.class_student = (TextView) row.findViewById(R.id.classRow);
+			holder.stt = (TextView) row.findViewById(R.id.stt);
 			row.setTag(holder);
 		} else {
 			holder = (StudentHolder) row.getTag();
@@ -74,6 +76,7 @@ public class StudentAdapter extends BaseAdapter{
 
 		holder.name_student.setText(data.get(position).getmName());
 		holder.class_student.setText(data.get(position).getmClass());
+		holder.stt.setText(String.valueOf(position + 1));
 		if (data.get(position).getmSex().equals("FEMALE")) {
 			holder.icon_sex.setImageResource(R.drawable.ic_female);
 		} else {

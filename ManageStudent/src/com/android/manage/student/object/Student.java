@@ -14,11 +14,18 @@ public class Student implements Serializable {
 	private String mSex;
 	private int idRegisterClass;
 
-	//day la ham khoi tao class student
 	public Student() {
 		this("", "", "", "",0);
 	}
 
+	public Student(String mId, String mName, String mClass, String sex)
+	{
+		this.mId = mId;
+		this.mName = mName;
+		this.mClass = mClass;
+		this.mSex = sex;
+	}
+	
 	public Student(int id, String mId, String mName, String mClass, String sex,int idRegister) {
 		this(mId, mName, mClass, sex,idRegister);
 		setId(id);
