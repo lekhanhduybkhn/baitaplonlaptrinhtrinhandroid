@@ -4,10 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.android.manage.student.base.SlidingSherlockFragmentActivity;
-import com.android.manage.student.object.ManageClass;
-import com.android.manage.student.object.Student;
-
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -15,12 +11,28 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.android.manage.student.base.SlidingSherlockFragmentActivity;
+import com.android.manage.student.object.AttendanceItem;
+import com.android.manage.student.object.ManageClass;
+import com.android.manage.student.object.ManagerBTL;
+import com.android.manage.student.object.Student;
+
 public class SqlManageStudentOpenHelper extends SQLiteOpenHelper {
 	@SuppressLint("SdCardPath")
 	private static final String DB_PATH = "/data/data/"
 			+ "com.android.manage.student.common" + "/databases/";
 	private static final String DATABASE_NAME = "manage_student.db";
 	private static final int SCHEMA_VERSION = 1;
+
+	/**
+	 * Bang Baitaplon tao string de luu gia tri truong cua table project
+	 */
+	private static final String TABLE_PROJECT = "TABLE_PROJECT";
+	private static final String ID_PROJECT = "ID_PROJECT";
+	private static final String MA_PROJECT = "MA_PROJECT";
+
+	private static final String TEN_PROJECT = "TEN_PROJECT";
+	private static final String DISC_PROJECT = "DISC_PROJECT";
 
 	/**
 	 * bang class
@@ -44,6 +56,16 @@ public class SqlManageStudentOpenHelper extends SQLiteOpenHelper {
 	private static final String GIOI_TINH = "GIOI_TINH";
 	private static final String ID_LOP_DK = "ID_LOP_DK";
 
+	/**
+	 * Bang diem danh
+	 */
+
+	private static final String TABLE_ATTENDANCE = "TABLE_ATTENDANCE";
+	private static final String ID_ATTENDANCE = "ID_ATTENDANCE";
+	private static final String DATE_ATTENDANCE = "DATE_ATTENDANCE";
+	private static final String ATTENDANCE = "ATTENDANCE";
+	private static final String NOTE_ATTENDANCE = "NOTE_ATTENDANCE";
+
 	public SqlManageStudentOpenHelper(SlidingSherlockFragmentActivity context) {
 		super(context, DATABASE_NAME, null, SCHEMA_VERSION);
 	}
@@ -66,15 +88,66 @@ public class SqlManageStudentOpenHelper extends SQLiteOpenHelper {
 				+ " FOREIGN KEY (" + ID_LOP_DK + ") REFERENCES " + TABLE_CLASS
 				+ " (" + ID_LOP + ")" + ")";
 
+		String create_attendance = "CREATE TABLE IF NOT EXISTS "
+				+ TABLE_ATTENDANCE + "(" + ID_ATTENDANCE
+				+ " INTEGER PRIMARY KEY AUTOINCREMENT," + DATE_ATTENDANCE
+				+ " VARCHAR(20)," + ATTENDANCE + " INTEGER," + NOTE_ATTENDANCE
+				+ " VARCHAR(250)," + ID_LOP + " INTEGER," + ID_SINH_VIEN
+				+ " INTEGER," + " FOREIGN KEY (" + ID_LOP + ") REFERENCES "
+				+ TABLE_CLASS + " (" + ID_LOP + ")," + " FOREIGN KEY ("
+				+ ID_SINH_VIEN + ") REFERENCES " + TABLE_STUDENT + " ("
+				+ ID_SINH_VIEN + ")" + ")";
+
+		String create_project = "CREATE TABLE IF NOT EXISTS " + TABLE_PROJECT
+				+ "(" + ID_PROJECT + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+				+ MA_PROJECT + " VARCHAR(20)," + TEN_PROJECT + " VARCHAR(20),"
+				+ DISC_PROJECT + " VARCHAR(500)" + ")";
+
 		db.execSQL(create);
 		db.execSQL(create_student);
+		db.execSQL(create_attendance);
+		db.execSQL(create_project);
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_CLASS);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_STUDENT);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_ATTENDANCE);
 		onCreate(db);
+	}
+
+	/**
+	 * them moi 1 BTL vao database
+	 */
+
+	public void addBTL(ManagerBTL mProject) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(MA_PROJECT, mProject.getMaBTL());
+		values.put(TEN_PROJECT, mProject.getTenBTL());
+		values.put(DISC_PROJECT, mProject.getDiscBTL());
+		db.insert(TABLE_PROJECT, ID_PROJECT, values);
+		db.close();
+
+	}
+
+	/**
+	 * update 1 class
+	 * 
+	 */
+
+	public int updateProject(ManagerBTL mBTL) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(ID_PROJECT, mBTL.getIdBTL());
+		values.put(MA_PROJECT, mBTL.getMaBTL());
+		values.put(TEN_PROJECT, mBTL.getTenBTL());
+		values.put(DISC_PROJECT, mBTL.getDiscBTL());
+		return db.update(TABLE_PROJECT, values, ID_PROJECT + " = ?",
+				new String[] { String.valueOf(mBTL.getIdBTL()) });
+
 	}
 
 	/**
@@ -164,6 +237,21 @@ public class SqlManageStudentOpenHelper extends SQLiteOpenHelper {
 	}
 
 	/**
+	 * xoa 1 project
+	 * 
+	 * @param idproject
+	 */
+	public void deleteProject(int idProject)
+
+	{
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(TABLE_PROJECT, ID_PROJECT + "=?",
+				new String[] { String.valueOf(idProject) });
+		db.close();
+
+	}
+
+	/**
 	 * lay 1 class tu co so du lieu
 	 * 
 	 * @param idClass
@@ -182,6 +270,29 @@ public class SqlManageStudentOpenHelper extends SQLiteOpenHelper {
 				cursor.getString(3), cursor.getString(4), cursor.getString(5));
 		// return contact
 		return mClass;
+	}
+
+	/**
+	 * get All Manage Class
+	 * 
+	 * @return
+	 */
+	public List<ManagerBTL> getbtl() {
+		List<ManagerBTL> list = new ArrayList<ManagerBTL>();
+		String select = "SELECT * FROM " + TABLE_PROJECT;
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(select, null);
+		if (cursor.moveToFirst()) {
+			do {
+				ManagerBTL mBtl = new ManagerBTL(Integer.parseInt(cursor
+						.getString(0)), cursor.getString(1),
+						cursor.getString(2), cursor.getString(3));
+				list.add(mBtl);
+			} while (cursor.moveToNext());
+
+		}
+		return list;
+
 	}
 
 	public List<Student> getListStudentByIdClass(int idClass) {
@@ -230,12 +341,92 @@ public class SqlManageStudentOpenHelper extends SQLiteOpenHelper {
 		return list;
 	}
 
+	public List<AttendanceItem> getAllAttendanceItemByDateAndClass(int idClass,
+			String date) {
+		List<AttendanceItem> list = new ArrayList<AttendanceItem>();
+		String selectQuery = "SELECT * FROM "
+				+ TABLE_ATTENDANCE
+				+ " JOIN "
+				+ TABLE_STUDENT
+				+ " ON TABLE_ATTENDANCE.ID_SINH_VIEN = TABLE_STUDENT.ID_SINH_VIEN "
+				+ "WHERE (ID_LOP" + "=" + String.valueOf(idClass)
+				+ " AND DATE_ATTENDANCE=?)";
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(selectQuery, new String[] { date });
+		if (cursor.moveToFirst()) {
+			do {
+				AttendanceItem item = new AttendanceItem();
+				item.set_id(Integer.parseInt(cursor.getString(0)));
+				item.set_date(cursor.getString(1));
+				int attent = Integer.parseInt(cursor.getString(2));
+				if (attent == 0) {
+					item.set_attendant(false);
+				} else {
+					item.set_attendant(true);
+				}
+				item.set_note(cursor.getString(3));
+				item.setIdClass(Integer.parseInt(cursor.getString(4)));
+
+				Student student = new Student(Integer.parseInt(cursor
+						.getString(6)), cursor.getString(7),
+						cursor.getString(8), cursor.getString(9),
+						cursor.getString(10), Integer.parseInt(cursor
+								.getString(11)));
+				item.setIdStudent(student.getId());
+				item.set_student(student);
+				list.add(item);
+			} while (cursor.moveToNext());
+		}
+		return list;
+	}
+
+	/**
+	 * Them moi 1 hang vao bang diem danh
+	 */
+	public void addAttendance(AttendanceItem attendanceItem) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(DATE_ATTENDANCE, attendanceItem.get_date());
+		values.put(ID_SINH_VIEN, attendanceItem.get_student().getId());
+		values.put(ID_LOP, attendanceItem.get_class().getIdLop());
+		values.put(ATTENDANCE, 0);
+		values.put(NOTE_ATTENDANCE, attendanceItem.get_note());
+		db.insert(TABLE_ATTENDANCE, ID_ATTENDANCE, values);
+		db.close();
+	}
+
+	public List<AttendanceItem> getHisAttendanceItem(int idSinhvien,
+			int idClass, String date) {
+		List<AttendanceItem> list = new ArrayList<AttendanceItem>();
+		String selectQuery = "SELECT * FROM " + TABLE_ATTENDANCE
+				+ " WHERE (ID_LOP" + "=" + String.valueOf(idClass)
+				+ " AND ID_SINH_VIEN=" + String.valueOf(idSinhvien)
+				+ " AND DATE_ATTENDANCE <> ?)";
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(selectQuery, new String[] { date });
+		if (cursor.moveToFirst()) {
+			do {
+				AttendanceItem item = new AttendanceItem();
+				item.set_id(Integer.parseInt(cursor.getString(0)));
+				item.set_date(cursor.getString(1));
+				int attent = Integer.parseInt(cursor.getString(2));
+				if (attent == 0) {
+					item.set_attendant(false);
+				} else {
+					item.set_attendant(true);
+				}
+				item.set_note(cursor.getString(3));
+				list.add(item);
+			} while (cursor.moveToNext());
+		}
+		return list;
+	}
+
 	/**
 	 * get sum row in table class
 	 * 
 	 * @return
 	 */
-	// Getting contacts Count
 	public int getCountClass() {
 		String countQuery = "SELECT  * FROM " + TABLE_CLASS;
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -245,6 +436,22 @@ public class SqlManageStudentOpenHelper extends SQLiteOpenHelper {
 
 	public int getCountStudentByIdClass(int idClass) {
 		return 0;
+	}
+
+	public int setAttendanceById(int id, int attendance) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(ATTENDANCE, attendance);
+		return db.update(TABLE_ATTENDANCE, values, ID_ATTENDANCE + " = ?",
+				new String[] { String.valueOf(id) });
+	}
+
+	public int setNoteAttendance(int id, String note) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(NOTE_ATTENDANCE, note);
+		return db.update(TABLE_ATTENDANCE, values, ID_ATTENDANCE + " = ?",
+				new String[] { String.valueOf(id) });
 	}
 
 	public boolean checkDatabase() {

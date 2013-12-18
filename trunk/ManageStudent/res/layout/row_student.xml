@@ -5,6 +5,15 @@
     android:orientation="horizontal"
     android:padding="4dip" >
 
+    <TextView
+        android:id="@+id/stt"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:singleLine="true" />
+
     <ImageView
         android:id="@+id/iconSex"
         android:layout_width="50dp"

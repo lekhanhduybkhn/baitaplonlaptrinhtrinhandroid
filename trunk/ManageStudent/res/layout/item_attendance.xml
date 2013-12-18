@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:background="#f2f2f2"
+    android:orientation="horizontal"
+    android:paddingLeft="20dp" >
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+        android:text="" />
+
+    <CheckBox
+        android:id="@+id/chbAttent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:checked="true"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/edtNote"
+        android:layout_width="0dip"
+        android:layout_height="26dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/etxt"
+        android:maxLength="200"
+        android:paddingLeft="5dp"
+        android:textSize="12sp" >
+
+        <requestFocus />
+    </EditText>
+
+</LinearLayout>

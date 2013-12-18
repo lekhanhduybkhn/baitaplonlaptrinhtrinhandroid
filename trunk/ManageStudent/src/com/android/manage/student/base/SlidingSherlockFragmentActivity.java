@@ -1,6 +1,5 @@
 package com.android.manage.student.base;
 
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -21,15 +20,20 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.android.manage.student.R;
 import com.android.manage.student.common.FragmentControler;
 import com.android.manage.student.dialog.DialogContextMenuAddEditClass;
+import com.android.manage.student.dialog.DialogContextMenuAddEditProject;
 import com.android.manage.student.dialog.DialogContextMenuAddEditStudent;
 import com.android.manage.student.dialog.DialogGeneral;
 import com.android.manage.student.object.ManageClass;
 import com.android.manage.student.object.MenuLeft;
 import com.android.manage.student.screen.AddNewOrUpdateClass;
-import com.android.manage.student.screen.DetailClass;
-import com.android.manage.student.screen.ManageStudents;
+import com.android.manage.student.screen.AddNewOrUpdateProject;
 import com.android.manage.student.screen.AddNewOrUpdateStudent;
+import com.android.manage.student.screen.DetailClass;
+import com.android.manage.student.screen.ManageAttendance;
+import com.android.manage.student.screen.ManageAttendanceDetail;
+import com.android.manage.student.screen.ManageStudents;
 import com.android.manage.student.screen.ScreenManageClass;
+import com.android.manage.student.screen.ScreenManagerProject;
 import com.android.manage.student.sliding.SlidingActivityBase;
 import com.android.manage.student.sliding.SlidingActivityHelper;
 import com.android.manage.student.sliding.SlidingMenu;
@@ -245,7 +249,7 @@ public class SlidingSherlockFragmentActivity extends SherlockFragmentActivity
 		nameClass = nC;
 		title_screen_actionbar.setBackgroundColor(getResources().getColor(
 				R.color.orange));
-		
+
 		if (nameClass.equals(AddNewOrUpdateStudent.class.toString())) {
 			addBackBtn();
 			hideAddBtn();
@@ -292,10 +296,10 @@ public class SlidingSherlockFragmentActivity extends SherlockFragmentActivity
 			getSupportActionBar().show();
 		}
 
-		// ScreenManageClass 1
-		if (nameClass.equals(ScreenManageClass.class.toString() + "1")) {
+		// ManageAttendance
+		if (nameClass.equals(ManageAttendance.class.toString())) {
+			hideAddBtn();
 			addMenuBtn();
-			showAddBtn(ScreenManageClass.class.toString(), null);
 			getTitle_screen_text().setText(
 					getResources().getString(R.string.ic_manage_attendance));
 			getSupportActionBar().show();
@@ -318,6 +322,37 @@ public class SlidingSherlockFragmentActivity extends SherlockFragmentActivity
 					getResources().getString(R.string.ic_manage_project));
 			getSupportActionBar().show();
 		}
+
+		// manage attendance detai
+		if (nameClass.contains(ManageAttendanceDetail.class.toString())) {
+			addBackBtn();
+			hideAddBtn();
+			getTitle_screen_text().setText(nameClass.substring(62));
+			getSupportActionBar().show();
+		}
+
+		if (nameClass.equals(ScreenManagerProject.class.toString())) {
+			addMenuBtn();
+			showAddBtn(ScreenManagerProject.class.toString());
+			getTitle_screen_text().setText(
+					getResources().getString(R.string.ic_manage_project));
+			getSupportActionBar().show();
+		}
+
+		if (nameClass.equals(AddNewOrUpdateProject.class.toString())) {
+			hideAddBtn();
+			addBackBtn();
+			getTitle_screen_text().setText("Thêm mới bài tập lớn");
+			getSupportActionBar().show();
+		}
+
+		if (nameClass.equals(AddNewOrUpdateProject.class.toString() + "edit")) {
+			hideAddBtn();
+			addBackBtn();
+			getTitle_screen_text().setText("Chinh sửa bài tập lớn");
+			getSupportActionBar().show();
+		}
+
 		// if Actionbar is not showing, set heightOfActionbar = -1. User can't
 		// onTouch on Actionbar
 		if (getSupportActionBar().isShowing()) {
@@ -369,7 +404,7 @@ public class SlidingSherlockFragmentActivity extends SherlockFragmentActivity
 	public void addBackBtn() {
 		title_screen_leftbtn.setVisibility(View.VISIBLE);
 		title_screen_leftbtn.setOnClickListener(null);
-		title_screen_leftbtn.setImageResource(R.drawable.ic_actionbar_btn_back);
+		title_screen_leftbtn.setImageResource(R.drawable.ic_btn_back_white);
 		title_screen_leftbtn.setOnClickListener(new OnClickListener() {
 			@SuppressLint("ResourceAsColor")
 			@Override
@@ -379,6 +414,22 @@ public class SlidingSherlockFragmentActivity extends SherlockFragmentActivity
 		});
 	}
 
+	public void showAddBtn(final String nameCl) {
+		title_screen_addbtn.setVisibility(View.VISIBLE);
+		title_screen_addbtn.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (nameCl.equals(ScreenManagerProject.class.toString())) {
+					AddNewOrUpdateProject addorupdateProject = new AddNewOrUpdateProject();
+					FragmentControler.replaceWithAddToBackStackAnimation(
+							SlidingSherlockFragmentActivity.this,
+							addorupdateProject, nameCl);
+				}
+			}
+		});
+	}
+	
 	public void hideAddBtn() {
 		title_screen_addbtn.setVisibility(View.INVISIBLE);
 		title_screen_addbtn.setOnClickListener(null);
@@ -519,10 +570,18 @@ public class SlidingSherlockFragmentActivity extends SherlockFragmentActivity
 				this, mClass, position);
 		menu.show();
 	}
-	
+
 	public void showMenuDialogStudent(ManageStudents mStudent, int position) {
 		DialogContextMenuAddEditStudent menu = new DialogContextMenuAddEditStudent(
 				this, mStudent, position);
 		menu.show();
 	}
+	
+	public void showMenuDialogProject(ScreenManagerProject mProject,
+			int position) {
+		DialogContextMenuAddEditProject menu = new DialogContextMenuAddEditProject(
+				this, mProject, position);
+		menu.show();
+	}
+
 }

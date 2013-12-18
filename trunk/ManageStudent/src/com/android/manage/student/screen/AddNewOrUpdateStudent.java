@@ -1,5 +1,7 @@
 package com.android.manage.student.screen;
 
+import java.util.List;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -7,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import com.android.manage.student.adapter.ListStudent;
 import com.android.manage.student.base.ManageStudentFragment;
 import com.android.manage.student.base.SlidingSherlockFragmentActivity;
 import com.android.manage.student.common.SqlManageStudentOpenHelper;
@@ -124,9 +127,15 @@ public class AddNewOrUpdateStudent extends ManageStudentFragment implements
 				break;
 			}
 			if (add) {
+				/**
 				Student student = new Student(id, name, classStudent, sex,
 						mClass.getIdLop());
-				sqlHelper.addStudentClass(student, mClass.getIdLop());
+				sqlHelper.addStudentClass(student, mClass.getIdLop());*/
+				List<Student> list = ListStudent.createListStudent();
+				for (int i = 0; i <list.size(); i++) {
+					sqlHelper.addStudentClass(list.get(i), mClass.getIdLop());
+				}
+				
 			} else {
 				Student studentTemp = new Student(student.getId(), id, name,
 						classStudent, sex, student.getIdRegisterClass());
